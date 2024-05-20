@@ -9,14 +9,14 @@ import Home from "../components/Home";
 import HomeLayout from "src/components/Home/HomeLayout";
 import NotFoundPage from "src/components/NotFoundPage";
 import { Fragment } from "react";
-import Teams from "src/components/Teams";
+import MyTeams from "src/components/MyTeams";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Fragment>
       <Route path="/" element={<HomeLayout />} errorElement={<NotFoundPage />}>
         <Route path="" element={<Home />} />
-        <Route path="my-teams" element={<Teams />} />
+        <Route path="my-teams" element={<MyTeams />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/login" element={<LogIn />} />

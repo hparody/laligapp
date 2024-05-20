@@ -8,10 +8,6 @@ const sectionWrapperStyle = css`
   flex-direction: column;
   justify-content: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  
-  @media (max-width: 991px) {
-    max-width: 100%;
-  }
 `;
 
 const headerStyle = css`
@@ -23,12 +19,6 @@ const headerStyle = css`
   justify-content: space-between;
   padding: 10px 60px;
   height: 80px;
-
-  @media (max-width: 991px) {
-    max-width: 100%;
-    flex-wrap: wrap;
-    padding: 0 20px;
-  }
 `;
 
 const iconStyle = css`
@@ -43,11 +33,7 @@ const NavBar = () => {
     <div css={sectionWrapperStyle}>
       <header css={headerStyle}>
         <Logo />
-        <img
-          css={iconStyle}
-          src="/src/assets/user-default.png"
-          alt="Icon"
-        />
+        <img css={iconStyle} src="/src/assets/user-default.png" alt="Icon" />
       </header>
     </div>
   );

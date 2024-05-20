@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Card as MuiCard } from "@mui/material";
 
-const Card = ({ children, id }) => (
+const Card = ({ children, id, sx }) => (
   <MuiCard
     id={id}
     sx={{
@@ -12,6 +12,7 @@ const Card = ({ children, id }) => (
       "&:hover": {
         transform: "scale(1.05)",
       },
+      ...sx,
     }}
   >
     {children}
@@ -21,6 +22,7 @@ const Card = ({ children, id }) => (
 Card.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string.isRequired,
+  sx: PropTypes.object,
 };
 
 export default Card;

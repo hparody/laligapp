@@ -7,7 +7,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <CardGroup spacing={4} sx={2} sm={3} md={3} lg={3} xl={3}>
+    <CardGroup spacing={8} sx={2} sm={3} md={3} lg={3} xl={3}>
       <HomeCard
         id="id_my_teams"
         onClick={() => navigate("/my-teams")}

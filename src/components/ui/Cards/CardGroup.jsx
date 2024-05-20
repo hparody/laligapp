@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 
 const CardGroup = ({
   children,
-  spacing=2,
+  spacing = 2,
   xs = "auto",
   sm = "auto",
   md = "auto",
@@ -19,7 +19,8 @@ const CardGroup = ({
         direction="row"
         justifyContent="flex-start"
         alignItems="flex-start"
-        sx={{ padding: "20px; 0px;" }}
+        aria-label="card=group-container"
+        sx={{ padding: "20px 0px" }}
       >
         {Array.isArray(children) ? (
           children.map((child) => (
@@ -31,6 +32,9 @@ const CardGroup = ({
               md={md}
               lg={lg}
               xl={xl}
+              sx={{
+                alignItems: "stretch",
+              }}
             >
               {child}
             </Grid>
@@ -44,6 +48,7 @@ const CardGroup = ({
             md={md}
             lg={lg}
             xl={xl}
+            sx={{ alignItems: "stretch" }}
           >
             {children}
           </Grid>
@@ -55,7 +60,7 @@ const CardGroup = ({
 
 CardGroup.propTypes = {
   children: PropTypes.node.isRequired,
-  spacing:PropTypes.number,
+  spacing: PropTypes.number,
   xs: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   sm: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   md: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
