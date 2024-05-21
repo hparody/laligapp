@@ -33,7 +33,6 @@ const TeamDialog = ({
     return (
       <Fragment>
         <TextField
-          autoFocus
           required
           margin="dense"
           id="id_team_name"
