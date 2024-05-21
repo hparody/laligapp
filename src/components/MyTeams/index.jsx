@@ -120,7 +120,7 @@ const MyTeams = () => {
           sx={{ fontWeight: "700", fontSize: "1rem" }}
           onClick={onCreateTeam}
         >
-          Crear Partido
+          Crear Equipo
         </Button>
       </Grid>
       <Grid item xs={12}>
