@@ -6,6 +6,7 @@ const TeamLogoImg = styled.img`
   text-align: center;
   object-fit: contain;
   color: transparent;
+  aspect-ratio: 1;
 `;
 
 export default TeamLogoImg;

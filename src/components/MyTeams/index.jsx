@@ -134,6 +134,7 @@ const MyTeams = () => {
                 flexDirection: "row",
                 padding: "15px",
                 gap: "15px",
+                height: "120px",
               }}
             >
               <CardMedia
