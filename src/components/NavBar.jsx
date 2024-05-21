@@ -18,8 +18,8 @@ const headerStyle = css`
   box-sizing: border-box;
   gap: 20px;
   justify-content: space-between;
-  padding: 10px 60px;
-  height: 80px;
+  padding: 10px 50px;
+  height: 70px;
 `;
 
 const iconStyle = css`

@@ -34,6 +34,7 @@ const CardGroup = ({
               xl={xl}
               sx={{
                 alignItems: "stretch",
+                width: "100%",
               }}
             >
               {child}

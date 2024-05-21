@@ -21,7 +21,7 @@ const HomeCard = ({
   image = DEFAULT_IMG,
   label = "",
 }) => (
-  <Card sx={{ maxWidth: 345 }} id={id}>
+  <Card id={id}>
     <CardActionArea onClick={onClick}>
       <CardMedia
         component="img"
