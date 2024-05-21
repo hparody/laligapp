@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import Logo from "./Logo";
+import defaultProfilePicture from "src/assets/user-default.png";
 
 const sectionWrapperStyle = css`
   position: relative;
@@ -33,7 +34,7 @@ const NavBar = () => {
     <div css={sectionWrapperStyle}>
       <header css={headerStyle}>
         <Logo />
-        <img css={iconStyle} src="/src/assets/user-default.png" alt="Icon" />
+        <img css={iconStyle} src={defaultProfilePicture} alt="Icon" />
       </header>
     </div>
   );

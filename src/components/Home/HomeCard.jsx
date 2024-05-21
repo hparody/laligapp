@@ -6,10 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 
+import defaultImg from "src/assets/img-default.png";
+
 import { Card } from "../ui/Cards";
 
 const defaultOnClick = (event) => event.preventDefault();
-const DEFAULT_IMG = "src/assets/img-default.png";
+const DEFAULT_IMG = defaultImg;
 const DEFAULT_ALT = "imagen";
 
 const HomeCard = ({
@@ -20,9 +22,7 @@ const HomeCard = ({
   label = "",
 }) => (
   <Card sx={{ maxWidth: 345 }} id={id}>
-    <CardActionArea
-      onClick={onClick}
-    >
+    <CardActionArea onClick={onClick}>
       <CardMedia
         component="img"
         alt={alt}

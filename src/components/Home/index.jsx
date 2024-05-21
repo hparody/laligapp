@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
+import myTeamsImage from "src/assets/teams.png";
+import matchesImage from "src/assets/matches.png";
+import standingsImage from "src/assets/standings.png";
+
 import { CardGroup } from "../ui/Cards";
 import HomeCard from "./HomeCard";
 
@@ -12,21 +16,21 @@ const Home = () => {
         id="id_my_teams"
         onClick={() => navigate("/my-teams")}
         alt="mis equipos"
-        image="/src/assets/teams.png"
+        image={myTeamsImage}
         label="Mis Equipos"
       />
       <HomeCard
         id="id_matches"
         onClick={() => navigate("/matches")}
         alt="partidos"
-        image="/src/assets/matches.png"
+        image={matchesImage}
         label="Partidos"
       />
       <HomeCard
         id="id_standings"
         onClick={() => navigate("/standings")}
         alt="posiciones"
-        image="/src/assets/standings.png"
+        image={standingsImage}
         label="Posiciones"
       />
     </CardGroup>
