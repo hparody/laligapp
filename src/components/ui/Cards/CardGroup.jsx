@@ -49,7 +49,7 @@ const CardGroup = ({
             md={md}
             lg={lg}
             xl={xl}
-            sx={{ alignItems: "stretch" }}
+            sx={{ alignItems: "stretch", width: "100%" }}
           >
             {children}
           </Grid>
