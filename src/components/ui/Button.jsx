@@ -24,7 +24,7 @@ const buttonConfigs = {
     icon: <SaveIcon />,
   },
   cancel: {
-    backgroundColor: "primary",
+    backgroundColor: "secondary",
     icon: <CancelPresentationIcon />,
   },
   basic: {

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
+import Button from "../Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -9,15 +9,14 @@ const defaultFnc = () => {};
 
 const FormDialog = ({
   open,
-  size="md",
+  size = "md",
   onCancel = defaultFnc,
   onSubmit = defaultFnc,
-  title='Dialog Title',
-  cancelText='Cancelar',
-  confirmText='Guardar',
+  title = "Dialog Title",
+  cancelText = "Cancelar",
+  confirmText = "Guardar",
   fields,
 }) => {
-
   const handleClose = () => {
     onCancel();
   };
@@ -39,10 +38,24 @@ const FormDialog = ({
       }}
     >
       <DialogTitle>{title}</DialogTitle>
-      <DialogContent>{fields}</DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>{cancelText}</Button>
-        <Button type="submit">{confirmText}</Button>
+      <DialogContent sx={{ padding: "0px 20px !important" }}>
+        {fields}
+      </DialogContent>
+      <DialogActions
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignContent: "center",
+          gap: "10px",
+          padding: "15px 20px",
+        }}
+      >
+        <Button kind="cancel" onClick={handleClose}>
+          {cancelText}
+        </Button>
+        <Button kind="save" type="submit">
+          {confirmText}
+        </Button>
       </DialogActions>
     </Dialog>
   );
@@ -56,7 +69,10 @@ FormDialog.propTypes = {
   title: PropTypes.string,
   cancelText: PropTypes.string,
   confirmText: PropTypes.string,
-  fields: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
+  fields: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
 };
 
 export default FormDialog;
