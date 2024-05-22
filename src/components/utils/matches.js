@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid";
+import { updateStandings } from "./standings";
 
 const getAllMatches = () => {
   return JSON.parse(localStorage.getItem("matches")) || [];
@@ -18,6 +19,7 @@ const createMatch = (matchInfo) => {
   const newMatch = { id: teamId, ...matchInfo };
   matches.push(newMatch);
   localStorage.setItem("matches", JSON.stringify(matches));
+  updateStandings().then((res) => console.log(res));
   return {
     state: 200,
     error: false,
@@ -34,6 +36,7 @@ const updateMatch = (matchToUpdate) => {
     ),
   ];
   localStorage.setItem("matches", JSON.stringify(newMatches));
+  updateStandings().then((res) => console.log(res));
   return {
     state: 200,
     error: false,
@@ -49,6 +52,7 @@ const deleteMatch = (matchId) => {
     ...currentMatches.filter((match) => match.id !== matchId),
   ];
   localStorage.setItem("matches", JSON.stringify(newMatches));
+  updateStandings().then((res) => console.log(res));
   return {
     state: 200,
     error: false,

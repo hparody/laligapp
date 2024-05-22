@@ -4,6 +4,7 @@ import {
   ThemeProvider,
   TeamsProvider,
   MatchesProvider,
+  StandingsProvider,
   DatePickerProvider,
 } from "./providers";
 import AppContainer from "./layout/AppContainer";
@@ -15,11 +16,13 @@ const App = () => {
       <DatePickerProvider>
         <TeamsProvider>
           <MatchesProvider>
-            <AppContainer>
-              <SnackbarProvider autoHideDuration={4000}>
-                <Router />
-              </SnackbarProvider>
-            </AppContainer>
+            <StandingsProvider>
+              <AppContainer>
+                <SnackbarProvider autoHideDuration={4000}>
+                  <Router />
+                </SnackbarProvider>
+              </AppContainer>
+            </StandingsProvider>
           </MatchesProvider>
         </TeamsProvider>
       </DatePickerProvider>

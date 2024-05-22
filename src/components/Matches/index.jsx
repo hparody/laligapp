@@ -17,7 +17,7 @@ import Button from "../ui/Button";
 import Breadcrum from "../Breadcrumb";
 import { SimpleDialog } from "../ui/Dialogs";
 import MatchDialog from "./MatchDialog";
-import { getTeamInfoById } from "../selectors/teams";
+import { getTeamInfoById } from "../../selectors/teams";
 
 import TeamLogoImg from "./TeamLogoImg";
 import TeamName from "./TeamName";
@@ -86,7 +86,7 @@ const Matches = () => {
 
   const onDeleteMatch = (match) => {
     setAction(ACTION_DELETE_MATCH);
-    setMatchInfo(match);
+    setMatchInfo(parseValues(match));
     setOpenDeleteDialog(true);
   };
 

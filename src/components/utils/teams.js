@@ -4,6 +4,11 @@ const getAllTeams = () => {
   return JSON.parse(localStorage.getItem("teams")) || [];
 };
 
+const getTeamInfoById = (teamId) => {
+  const teams = getAllTeams();
+  return teams.find((t) => t.id === teamId);
+};
+
 const teamAlreadyExists = (teamName, teams) => {
   return teams.some(
     (team) => team.name.toLowerCase() == teamName.toLowerCase()
@@ -67,6 +72,7 @@ const updateTeamsOnLocalStorage = (teams) => {
 
 export {
   getAllTeams,
+  getTeamInfoById,
   teamAlreadyExists,
   updateTeamsOnLocalStorage,
   createTeam,
