@@ -4,6 +4,13 @@ const getAllMatches = () => {
   return JSON.parse(localStorage.getItem("matches")) || [];
 };
 
+const teamHasMatches = (teamId) => {
+  const matches = getAllMatches();
+  return matches.some(
+    (match) => teamId === match.localTeam || teamId === match.awayTeam
+  );
+};
+
 const createMatch = (matchInfo) => {
   const matches = getAllMatches();
   const teamId = uuid();
@@ -50,4 +57,4 @@ const deleteMatch = (matchId) => {
   };
 };
 
-export { getAllMatches, createMatch, updateMatch, deleteMatch };
+export { getAllMatches, teamHasMatches, createMatch, updateMatch, deleteMatch };

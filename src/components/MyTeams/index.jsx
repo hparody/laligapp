@@ -17,6 +17,7 @@ import {
   deleteTeam,
   getAllTeams,
 } from "../utils/teams";
+import { teamHasMatches } from "../utils/matches";
 import Breadcrum from "../Breadcrumb";
 import TeamDialog from "./TeamDialog";
 import { Card, CardGroup } from "../ui/Cards";
@@ -73,6 +74,14 @@ const MyTeams = () => {
   };
 
   const onDeleteTeam = (team) => {
+    if (teamHasMatches(team.id)) {
+      triggerAlert({
+        message:
+          "No se puede eliminar un equipo que ya tenga partidos registrados.",
+        type: "error",
+      });
+      return;
+    }
     setAction(ACTION_DELETE_TEAM);
     setTeamInfo(team);
     setOpenDeleteDialog(true);
