@@ -139,6 +139,7 @@ const MyTeams = () => {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 alt={team.name}
                 image={team.logo}
                 sx={{

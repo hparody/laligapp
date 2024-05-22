@@ -25,6 +25,7 @@ const HomeCard = ({
     <CardActionArea onClick={onClick}>
       <CardMedia
         component="img"
+        loading="lazy"
         alt={alt}
         image={image}
         sx={{

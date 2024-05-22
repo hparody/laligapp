@@ -211,7 +211,11 @@ const Matches = () => {
                         alignSelf: "center",
                       }}
                     >
-                      <TeamLogoImg alt={localTeam.name} src={localTeam.logo} />
+                      <TeamLogoImg
+                        alt={localTeam.name}
+                        src={localTeam.logo}
+                        loading="lazy"
+                      />
                       <TeamName>{localTeam.name}</TeamName>
                     </Box>
                     <Box component="div" sx={{ width: "12%" }}>
@@ -266,7 +270,11 @@ const Matches = () => {
                         alignSelf: "center",
                       }}
                     >
-                      <TeamLogoImg alt={awayTeam.name} src={awayTeam.logo} />
+                      <TeamLogoImg
+                        alt={awayTeam.name}
+                        src={awayTeam.logo}
+                        loading="lazy"
+                      />
                       <TeamName>{awayTeam.name}</TeamName>
                     </Box>
                   </Box>
