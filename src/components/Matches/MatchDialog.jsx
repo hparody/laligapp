@@ -40,14 +40,22 @@ const MatchDialog = ({
 
   const onFieldChange = useCallback(
     (fieldName, fieldValue) => {
-      const additionalValues = {};
+      if (fieldName === "goalsLocal" || fieldName === "goalsAway") {
+        fieldValue = isNaN(fieldValue) ? 0 : fieldValue;
+      }
+
+      const teamValuesAdjustment = {};
       if (fieldName === "localTeam" && fieldValue === values.awayTeam) {
-        additionalValues.awayTeam = "";
+        teamValuesAdjustment.awayTeam = "";
       }
       if (fieldName === "awayTeam" && fieldValue === values.localTeam) {
-        additionalValues.localTeam = "";
+        teamValuesAdjustment.localTeam = "";
       }
-      setValues({ ...values, [fieldName]: fieldValue, ...additionalValues });
+      setValues({
+        ...values,
+        [fieldName]: fieldValue,
+        ...teamValuesAdjustment,
+      });
     },
     [values]
   );
@@ -150,10 +158,7 @@ const MatchDialog = ({
             fullWidth
             value={parseInt(goalsLocal)}
             onChange={(event) =>
-              onFieldChange(
-                "goalsLocal",
-                isNaN(event.target.value) ? 0 : event.target.value
-              )
+              onFieldChange("goalsLocal", event.target.value)
             }
           />
         </FormGridItem>
@@ -169,12 +174,7 @@ const MatchDialog = ({
             min={0}
             fullWidth
             value={parseInt(goalsAway)}
-            onChange={(event) =>
-              onFieldChange(
-                "goalsAway",
-                isNaN(event.target.value) ? 0 : event.target.value
-              )
-            }
+            onChange={(event) => onFieldChange("goalsAway", event.target.value)}
           />
         </FormGridItem>
       </Grid>
