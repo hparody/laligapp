@@ -55,7 +55,7 @@ const MatchDialog = ({
   const MatchFields = useMemo(() => {
     const {
       matchDate = dayjs(),
-      matchTime = dayjs(),
+      matchTime = null,
       localTeam = "",
       awayTeam = "",
       goalsLocal = 0,
@@ -77,11 +77,12 @@ const MatchDialog = ({
             required
             name="matchDate"
             label="Fecha del Partido"
+            timezone="system"
+            format="DD/MM/YYYY"
             value={dayjs(matchDate)}
             onChange={(newMatchDate) =>
               onFieldChange("matchDate", newMatchDate)
             }
-            referenceDate={dayjs()}
             maxDate={dayjs()}
             disableFuture
             formatDensity="dense"
@@ -103,7 +104,12 @@ const MatchDialog = ({
             required
             name="matchTime"
             label="Hora del Partido"
-            value={dayjs(`${matchDate} ${matchTime}`, "DD/MM/YYYY HH:mm A")}
+            format="hh:mm A"
+            value={
+              matchTime === null
+                ? dayjs()
+                : dayjs(`${matchDate} ${matchTime}`, "DD/MM/YYYY hh:mm A")
+            }
             formatDensity="dense"
             slotProps={{
               textField: {
@@ -144,7 +150,10 @@ const MatchDialog = ({
             fullWidth
             value={parseInt(goalsLocal)}
             onChange={(event) =>
-              onFieldChange("goalsLocal", event.target.value)
+              onFieldChange(
+                "goalsLocal",
+                isNaN(event.target.value) ? 0 : event.target.value
+              )
             }
           />
         </FormGridItem>
@@ -160,7 +169,12 @@ const MatchDialog = ({
             min={0}
             fullWidth
             value={parseInt(goalsAway)}
-            onChange={(event) => onFieldChange("goalsAway", event.target.value)}
+            onChange={(event) =>
+              onFieldChange(
+                "goalsAway",
+                isNaN(event.target.value) ? 0 : event.target.value
+              )
+            }
           />
         </FormGridItem>
       </Grid>
