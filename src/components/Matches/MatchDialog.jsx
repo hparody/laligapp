@@ -40,7 +40,14 @@ const MatchDialog = ({
 
   const onFieldChange = useCallback(
     (fieldName, fieldValue) => {
-      setValues({ ...values, [fieldName]: fieldValue });
+      const additionalValues = {};
+      if (fieldName === "localTeam" && fieldValue === values.awayTeam) {
+        additionalValues.awayTeam = "";
+      }
+      if (fieldName === "awayTeam" && fieldValue === values.localTeam) {
+        additionalValues.localTeam = "";
+      }
+      setValues({ ...values, [fieldName]: fieldValue, ...additionalValues });
     },
     [values]
   );
