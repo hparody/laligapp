@@ -31,7 +31,9 @@ const FormDialog = ({
         onSubmit: (event) => {
           event.preventDefault();
           const formData = new FormData(event.currentTarget);
-          const formJson = Object.fromEntries(formData.entries());
+          const formJson = Object.fromEntries(
+            formData.entries().map(([field, value]) => [field, value.trim()])
+          );
           // console.log(formJson);
           onSubmit(formJson);
         },
