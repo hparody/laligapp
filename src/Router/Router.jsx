@@ -4,19 +4,30 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import LogIn from "../components/LogIn";
-import Home from "../components/Home";
+import { Fragment } from "react";
+
 import HomeLayout from "src/components/Home/HomeLayout";
 import NotFoundPage from "src/components/NotFoundPage";
-import { Fragment } from "react";
 import MyTeams from "src/components/MyTeams";
 import Standings from "src/components/Standings";
 import Matches from "src/components/Matches";
 
+import LogIn from "../components/LogIn";
+import Home from "../components/Home";
+import ProtectedRoute from "./ProtectedRoute";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Fragment>
-      <Route path="/" element={<HomeLayout />} errorElement={<NotFoundPage />}>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <HomeLayout />
+          </ProtectedRoute>
+        }
+        errorElement={<NotFoundPage />}
+      >
         <Route path="" element={<Home />} />
         <Route path="my-teams" element={<MyTeams />} />
         <Route path="matches" element={<Matches />} />
